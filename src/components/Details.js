@@ -27,10 +27,10 @@ export default class Details extends Component {
             ]
             };
         }
-        handleClick(a) {
+        handleClick1(a) {
             ReactGA.event({
                 category: 'Navigation',
-                action: 'Clicked Link',
+                action: 'Clicked Link'+a
             });
         }
     render() {
@@ -86,8 +86,8 @@ export default class Details extends Component {
                                            </Link> 
                                            <ButtonContainer cart className="ml-3 " 
                                            disabled={inCart?true:false} onClick={()=>{
-                                               this.handleclick1(id);
-                                               value.addToCart(id)
+                                               this.handleClick1(id);
+                                               value.addToCart(id);
                                                value.openModal(id);
                                            }}>
                                              {inCart? " inCart ": "add to cart"}
