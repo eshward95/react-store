@@ -2,23 +2,53 @@ import React, { Component } from 'react'
 import {ProductConsumer} from '../context'
 import {Link} from 'react-router-dom'
 import {ButtonContainer} from './Button'
+import Joyride from "react-joyride";
+import { Steps, Hints } from 'intro.js-react';
+import "../App.css";
+import 'intro.js/introjs.css';
+import '../index.css';
+import '../style.css';
 export default class Details extends Component {
+    constructor(props) {
+        super(props);
+      
+        this.state = {
+            steps: [
+            {
+            placement:"top",
+            target: ".ml-3",
+            content: "Click me"
+            },
+            {
+            target: ".card-btn",
+            content: "Everyone's learning Joyride!"
+            }
+            ]
+            };
+        }
     render() {
         // const divStyle = {
+            const { steps } = this.state;
+   
         //     color: "#ffa400",
         //   };
         return (
+            
             <ProductConsumer>
+             
                 {value=>{
+                    
                   const {id,company,img,info,price,title,inCart}=
                   value.detailProduct;
                   return(
                       <div className="container py-5">
+                      {/* <Joyride steps={steps} /> */}
                           <div className="row">
                               <div className="col-10 mx-auto text-center text-slated text-blue my-5">
                                 <h1>{title}</h1>
                                </div>
                           </div>
+
                           {/* Product Info */}
                           <div className='row'>
                               <div className="col-10 mx-auto col-md-6 my-3

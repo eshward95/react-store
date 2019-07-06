@@ -3,12 +3,52 @@ import styled from 'styled-components';
 import {Link} from  'react-router-dom'
 import {ProductConsumer} from '../context'
 import PropTypes from 'prop-types'
+import Joyride from "react-joyride";
+import { Steps, Hints } from 'intro.js-react';
+import "../App.css";
+import 'intro.js/introjs.css';
+import '../index.css';
+import '../style.css'
 export default class Product extends Component {
+    constructor(props) {
+        super(props);
+      
+        this.state = {
+            steps: [
+            {
+            placement:"top",
+            target: ".card",
+            content: "Click me"
+            },
+            {
+            target: ".card-btn",
+            content: "Everyone's learning Joyride!"
+            }
+            ]
+            };
+        }
     render() {
+        // const { steps } = this.state;
+        // const { stepsEnabled, steps, initialStep, hintsEnabled, hints } = this.state;
+      
         const {id,title,img,price,inCart}=this.props.product;
+        
         return (
+
             <ProductWrapper className=" col-9 mx-auto col-md-6 col-lg-3 my-3">
-                <div className='card'>
+     {/* <Steps
+          enabled={stepsEnabled}
+          steps={steps}
+          initialStep={initialStep}
+          onExit={this.onExit}
+        />
+        <Hints
+          enabled={hintsEnabled}
+          hints={hints}
+        /> */}
+        {/* <Joyride steps={steps} /> */}
+              <div className='card'>
+               
                     <ProductConsumer>
                     {(value)=>(
                         <div 
@@ -33,6 +73,7 @@ export default class Product extends Component {
                     </div>)}
                     
                     </ProductConsumer>
+                    
                     <div className="card-footer d-flex justify-content-between">
                         <p className="align-self-center mb-0" >
                             {title}
@@ -43,7 +84,9 @@ export default class Product extends Component {
                         </h5>
                     </div>
                 </div>
+                
             </ProductWrapper>
+           
         )
     }
 }
