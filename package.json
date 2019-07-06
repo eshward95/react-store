@@ -8,6 +8,7 @@
     "intro.js-react": "^0.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-joyride": "^2.0.5",
     "react-paypal-express-checkout": "^1.0.5",
     "react-router-dom": "^5.0.1",
