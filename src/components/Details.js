@@ -5,6 +5,7 @@ import {ButtonContainer} from './Button'
 import Joyride from "react-joyride";
 import { Steps, Hints } from 'intro.js-react';
 import "../App.css";
+import ReactGA from 'react-ga';
 import 'intro.js/introjs.css';
 import '../index.css';
 import '../style.css';
@@ -25,6 +26,12 @@ export default class Details extends Component {
             }
             ]
             };
+        }
+        handleClick(a) {
+            ReactGA.event({
+                category: 'Navigation',
+                action: 'Clicked Link',
+            });
         }
     render() {
         // const divStyle = {
@@ -79,6 +86,7 @@ export default class Details extends Component {
                                            </Link> 
                                            <ButtonContainer cart className="ml-3 " 
                                            disabled={inCart?true:false} onClick={()=>{
+                                               this.handleclick1(id);
                                                value.addToCart(id)
                                                value.openModal(id);
                                            }}>

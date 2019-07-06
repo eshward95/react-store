@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Link} from  'react-router-dom'
 import {ProductConsumer} from '../context'
 import PropTypes from 'prop-types'
+import ReactGA from 'react-ga';
 import Joyride from "react-joyride";
 import { Steps, Hints } from 'intro.js-react';
 import "../App.css";
@@ -26,6 +27,14 @@ export default class Product extends Component {
             }
             ]
             };
+        }
+        handleDetail1(id) {
+            console.log(id)
+            ReactGA.event({
+                category: 'Navigation',
+                action: 'Clicked Details' + id,
+            });
+            
         }
     render() {
         // const { steps } = this.state;
@@ -53,12 +62,19 @@ export default class Product extends Component {
                     {(value)=>(
                         <div 
                     className="img-fluid img-container p-5" onClick={()=>
-                    value.handleDetail(id)}>
+                        {
+                            this.handleDetail1(title);
+                            console.log(title);
+                    value.handleDetail(id)
+                        }
+                    }>
                         <Link to="/details">
                             <img src={img} alt="product" className="card-img-top img-fluid"></img>
                         </Link>
                         <button className="card-btn" disabled={inCart?true:false} onClick={()=>
                         {
+                            this.handleDetail1(id);
+                            console.log("hi")
                             value.addToCart(id);
                             value.openModal(id);
                         }}>

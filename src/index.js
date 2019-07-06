@@ -8,6 +8,9 @@ import ReactGA from 'react-ga';
 import { createBrowserHistory } from 'history';
 import * as serviceWorker from './serviceWorker';
 
+
+const trackingId = "UA-1234567890-1"; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
 const history = createBrowserHistory();
 
 // Initialize google analytics page view tracking
